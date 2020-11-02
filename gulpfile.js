@@ -7,10 +7,12 @@ const del = require("del");
 
 const uglify = require("gulp-uglify-es").default;
 const minifyCSS = require("gulp-minify-css");
+const { src } = require("gulp");
 
 const paths = {
   src: {
     js: "src/js/**/*.js",
+    jsModule: "src/js/module/**/*.js",
     sass: "src/scss/**/*.scss",
     html: "src/index.html",
     img: "src/img/**/*.{jpg,jpeg,png,svg,gif}",
@@ -36,7 +38,7 @@ gulp.task("sass", () => {
 
 gulp.task("js", () => {
   return gulp
-    .src(paths.src.js)
+    .src([paths.src.jsModule, paths.src.js])
     .pipe(uglify())
     .pipe(concat("main.min.js"))
     .pipe(gulp.dest(paths.dist.js));

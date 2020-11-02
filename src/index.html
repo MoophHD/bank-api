@@ -14,42 +14,59 @@
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/tagify/3.20.3/tagify.min.css"
+        />
         <link rel="stylesheet" href="./main.min.css" />
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/tagify/3.20.3/tagify.min.js"
+            defer
+        ></script>
         <script src="./main.min.js" defer></script>
     </head>
     <body>
         <main class="app">
-            <section class="options">
-                <div class="options__date-wrapper">
-                    <div class="option">
-                        <label for="date-start" class="option__label"
-                            >Start Date:</label
-                        >
-                        <input
-                            id="date-start"
-                            type="date"
-                            class="option__input"
-                        />
+            <section class="menu">
+                <div class="options">
+                    <div class="options__date-wrapper">
+                        <div class="option">
+                            <label for="date-start" class="option__label"
+                                >Start Date:</label
+                            >
+                            <input
+                                id="date-start"
+                                type="date"
+                                class="option__input"
+                            />
+                        </div>
+                        <div class="option">
+                            <label for="date-finish" class="option__label"
+                                >Finish Date:</label
+                            >
+                            <input
+                                id="date-finish"
+                                type="date"
+                                class="option__input"
+                            />
+                        </div>
                     </div>
+
                     <div class="option">
-                        <label for="date-finish" class="option__label"
-                            >Finish Date:</label
+                        <label
+                            for="currency-input"
+                            value="USD,RUB,MDL"
+                            class="option__label"
+                            >Currencies</label
                         >
-                        <input
-                            id="date-finish"
-                            type="date"
-                            class="option__input"
-                        />
+                        <input id="currency-input" class="option__input" />
                     </div>
                 </div>
 
-                <div class="option">
-                    <label for="currency" class="option__label"
-                        >Currencies</label
-                    >
-                    <input id="currency" class="option__input" />
-                </div>
+                <button id="fetch" class="btn btn-primary">Fetch</button>
             </section>
+
             <section class="result"></section>
         </main>
     </body>

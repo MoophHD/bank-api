@@ -1,0 +1,7 @@
+.menu {
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+
+    padding: getRem(80px) getRem(50px);
+}
