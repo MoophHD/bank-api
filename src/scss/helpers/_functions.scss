@@ -1,0 +1,9 @@
+@function getRem($size) {
+    $remSize: $size / 16px;
+    @return #{$remSize}rem;
+}
+
+@function getEm($size) {
+    $remSize: $size / 16px;
+    @return #{$remSize}em;
+}

@@ -1,0 +1,27 @@
+.options {
+    display: flex;
+    flex-direction: column;
+    padding: getRem(80px) getRem(50px) 0;
+
+    &__date-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: getRem(30px);
+
+        .option:first-child {
+            margin-right: getRem(30px);
+        }
+    }
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    &__label {
+        margin-bottom: 0;
+    }
+    &__input {
+        padding: getRem(5px);
+        border: 1px solid $color-gray;
+    }
+}
