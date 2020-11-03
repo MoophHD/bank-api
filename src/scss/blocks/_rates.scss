@@ -1,0 +1,21 @@
+.rates {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: getRem(80px) getRem(50px);
+
+    &__label {
+        
+    }
+
+    &__table {
+        width: 100%;
+
+        td {
+            border: 1px solid $color-gray;
+            padding: getRem(3px) getRem(5px);
+        }
+    }
+
+
+}

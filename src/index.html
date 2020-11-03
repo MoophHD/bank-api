@@ -56,7 +56,6 @@
                     <div class="option">
                         <label
                             for="currency-input"
-                            value="USD,RUB,MDL"
                             class="option__label"
                             >Currencies</label
                         >
@@ -67,7 +66,10 @@
                 <button id="fetch" class="btn btn-primary">Fetch</button>
             </section>
 
-            <section class="result"></section>
+            <section class="rates">
+                <span class="rates__label" >Rates: </span>
+                <table class="rates__table" id="rates-table"></table>
+            </section>
         </main>
     </body>
 </html>
