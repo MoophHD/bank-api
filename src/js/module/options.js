@@ -1,4 +1,5 @@
 const options = (() => {
+  const EARLIEST_DATE = "1991-01-01"
   const dateStart = document.getElementById("date-start");
   const dateFinish = document.getElementById("date-finish");
   const currencyInput = document.getElementById("currency-input");
@@ -16,6 +17,9 @@ const options = (() => {
     let today = new Date().toISOString().substr(0, 10);
 
     dateStart.value = dateFinish.value = today;
+    dateStart.max = dateFinish.max = today;
+    dateStart.min = dateFinish.min = EARLIEST_DATE;
+
   }
 
   function attachTagify() {
