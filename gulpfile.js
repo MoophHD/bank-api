@@ -12,6 +12,7 @@ const { src } = require("gulp");
 const paths = {
   src: {
     js: "src/js/**/*.js",
+    jsData: "src/js/data/**/*.js",
     jsModule: "src/js/module/**/*.js",
     sass: "src/scss/**/*.scss",
     html: "src/index.html",
@@ -38,7 +39,7 @@ gulp.task("sass", () => {
 
 gulp.task("js", () => {
   return gulp
-    .src([paths.src.jsModule, paths.src.js])
+    .src([paths.src.jsData, paths.src.jsModule, paths.src.js])
     .pipe(uglify())
     .pipe(concat("main.min.js"))
     .pipe(gulp.dest(paths.dist.js));

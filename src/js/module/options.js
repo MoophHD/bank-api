@@ -3,6 +3,15 @@ const options = (() => {
   const dateFinish = document.getElementById("date-finish");
   const currencyInput = document.getElementById("currency-input");
 
+  function buildCurrencyWhiteList() {
+    return data.currencies.map((currency) => ({
+      value: currency.Cur_Abbreviation,
+      searchBy: [currency.Cur_Name, currency.Cur_Name_Eng].join(","),
+      id: currency.Cur_ID,
+      quot: `${currency.Cur_Scale} ${currency.Cur_Abbreviation}`,
+    }));
+  }
+
   function setInitialDateValue() {
     let today = new Date().toISOString().substr(0, 10);
 
@@ -12,15 +21,7 @@ const options = (() => {
   function attachTagify() {
     const tagify = new Tagify(currencyInput, {
       enforceWhitelist: true,
-      whitelist: [
-        {
-          value: "USD",
-          searchBy: "United States Dollar",
-          id: 145,
-        },
-        { value: "RUB", searchBy: "Russin Rouble", id: 298 },
-        { value: "MDL", searchBy: "Moldovan Leu", id: 296 },
-      ],
+      whitelist: buildCurrencyWhiteList(),
     });
   }
 

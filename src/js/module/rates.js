@@ -13,6 +13,7 @@ const rates = (() => {
   }
 
   function buildBody(data) {
+    console.log(data);
     const cols = data.length;
     const rows = data[0].length;
 
@@ -22,7 +23,8 @@ const rates = (() => {
       let date = dates[i];
       let rates = [];
       for (let j = 0; j < cols; j++) {
-        rates.push(data[j][i].Cur_OfficialRate);
+        let rate = data[j][i].Cur_OfficialRate;
+        rates.push(rate);
       }
 
       let row = buildRow([date, ...rates]);
@@ -112,7 +114,7 @@ const rates = (() => {
 
     const data = await fetchSimultaneously(requests);
 
-    const headData = ["Дата", ...currencies.map((c) => c.value)]
+    const headData = ["Дата", ...currencies.map((c) => c.quot)];
     buildTable(headData, data);
   }
 
