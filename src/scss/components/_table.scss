@@ -5,4 +5,15 @@
         border: getRem(1px) solid $color-gray;
         padding: getRem(3px) getRem(5px);
     }
+
+    tr:nth-child(2n) {
+        background-color: $color-light-gray;
+    }
+
+    thead {
+        td {
+            background-color: $color-accent;
+            color: $color-white;
+        }
+    }
 }

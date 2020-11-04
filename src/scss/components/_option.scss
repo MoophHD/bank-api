@@ -5,7 +5,26 @@
         margin-bottom: 0;
     }
     &__input {
-        padding: getRem(5px);
-        border: 1px solid $color-gray;
+        padding: getRem(8px);
+        border: getRem(1px) solid $color-gray;
+        &:focus {
+            outline-color: $color-accent;
+        }
+    }
+
+    .tagify {
+        --tags-border-color: $color-gray;
+        --tags-hover-border-color: $color-gray;
+        --tags-focus-border-color: $color-accent;
+        --tag-pad: 0.2rem;
+
+        padding:  calc(#{getRem(8px)} - 0.2rem);
+
+        &--focus {
+            // border-color: transparent;
+            outline-offset: getRem(-1px);
+            outline: getRem(2px) solid $color-accent;
+        }
+
     }
 }

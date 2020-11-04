@@ -7,6 +7,8 @@
     box-shadow: none;
     padding: getRem(7px);
 
+    border: getRem(1px) solid $color-gray;
+
     &:hover,
     &:focus {
         background-color: darken($color-accent, 10%);

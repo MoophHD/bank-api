@@ -1,14 +1,13 @@
 .rates {
     display: flex;
     flex-direction: column;
-
     flex: 1;
     padding: getRem(80px) getRem(50px);
+    overflow-y: auto;
 
     .table-wrapper {
         display: flex;
         flex: 1;
-
         position: relative;
         .spinner-wrapper {
             position: absolute;
