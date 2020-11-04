@@ -1,0 +1,19 @@
+.button {
+    background-color: $color-accent;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    color: $color-white;
+    box-shadow: none;
+    padding: getRem(7px);
+
+    &:hover,
+    &:focus {
+        background-color: darken($color-accent, 10%);
+        color: $color-white;
+    }
+
+    &:active {
+        background-color: darken($color-accent, 20%);
+    }
+}

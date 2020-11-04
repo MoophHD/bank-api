@@ -1,0 +1,11 @@
+.option {
+    display: flex;
+    flex-direction: column;
+    &__label {
+        margin-bottom: 0;
+    }
+    &__input {
+        padding: getRem(5px);
+        border: 1px solid $color-gray;
+    }
+}

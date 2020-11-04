@@ -63,12 +63,19 @@
                     </div>
                 </div>
 
-                <button id="fetch" class="btn btn-primary">Fetch</button>
+                <button id="fetch" class="btn button">Fetch</button>
             </section>
 
             <section class="rates">
                 <span class="rates__label" >Rates: </span>
-                <table class="rates__table" id="rates-table"></table>
+
+                <div class="table-wrapper">
+                    <table class="table" id="rates-table"></table>
+
+                    <div class="spinner-wrapper">
+                        <div class="spinner spinner--active"></div>
+                    </div>
+                </div>
             </section>
         </main>
     </body>

@@ -3,6 +3,10 @@
 @import "helpers/functions";
 
 @import "blocks/app";
-@import "blocks/options";
 @import "blocks/rates";
 @import "blocks/menu";
+
+@import "components/spinner";
+@import "components/button";
+@import "components/option";
+@import "components/table";

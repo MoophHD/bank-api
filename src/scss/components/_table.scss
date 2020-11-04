@@ -1,0 +1,8 @@
+.table {
+    width: 100%;
+
+    td {
+        border: getRem(1px) solid $color-gray;
+        padding: getRem(3px) getRem(5px);
+    }
+}

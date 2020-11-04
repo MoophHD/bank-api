@@ -1,21 +1,20 @@
 .rates {
     display: flex;
     flex-direction: column;
+
     flex: 1;
     padding: getRem(80px) getRem(50px);
 
-    &__label {
-        
-    }
+    .table-wrapper {
+        display: flex;
+        flex: 1;
 
-    &__table {
-        width: 100%;
-
-        td {
-            border: 1px solid $color-gray;
-            padding: getRem(3px) getRem(5px);
+        position: relative;
+        .spinner-wrapper {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
     }
-
-
 }
