@@ -1,6 +1,13 @@
 const rates = (() => {
   const ratesTable = document.getElementById("rates-table");
 
+  const spinner = document.querySelector('.spinner');
+  const spinnerActiveClass = "spinner--active";
+
+  function toggleSpinner() {
+    spinner.classList.toggle(spinnerActiveClass);
+  }
+
   function buildTable(headData, bodyData) {
     const table = ratesTable;
     table.innerHTML = "";
@@ -13,7 +20,6 @@ const rates = (() => {
   }
 
   function buildBody(data) {
-    console.log(data);
     const cols = data.length;
     const rows = data[0].length;
 
@@ -105,6 +111,8 @@ const rates = (() => {
     if (options.currency.length < 1) return;
     const { dateStart, dateFinish } = options;
 
+    toggleSpinner();
+
     const currencies = JSON.parse(options.currency);
     const currencyIds = currencies.map((currency) => currency.id);
 
@@ -116,6 +124,7 @@ const rates = (() => {
 
     const headData = ["Дата", ...currencies.map((c) => c.quot)];
     buildTable(headData, data);
+    toggleSpinner();
   }
 
   return { fetchAndBuild };
