@@ -1,7 +1,7 @@
 const rates = (() => {
   const ratesTable = document.getElementById("rates-table");
 
-  const spinner = document.querySelector('.spinner');
+  const spinner = document.querySelector(".spinner");
   const spinnerActiveClass = "spinner--active";
 
   function toggleSpinner() {
@@ -20,23 +20,13 @@ const rates = (() => {
   }
 
   function buildBody(data) {
-    const cols = data.length;
-    const rows = data[0].length;
-
     const tbody = document.createElement("tbody");
-    const dates = data[0].map((dataRow) => dataRow.Date.substr(0, 10));
-    for (let i = 0; i < rows; i++) {
-      let date = dates[i];
-      let rates = [];
-      for (let j = 0; j < cols; j++) {
-        let rate = data[j][i].Cur_OfficialRate;
-        rates.push(rate);
-      }
 
-      let row = buildRow([date, ...rates]);
+    data.forEach((rowData) => {
+      let row = buildRow(rowData);
 
       tbody.appendChild(row);
-    }
+    });
 
     return tbody;
   }
@@ -109,22 +99,59 @@ const rates = (() => {
 
   async function fetchAndBuild(options) {
     if (options.currency.length < 1) return;
-    const { dateStart, dateFinish } = options;
+    const { dateStart, dateFinish, currency } = options;
 
     toggleSpinner();
 
-    const currencies = JSON.parse(options.currency);
+    const currencies = JSON.parse(currency);
     const currencyIds = currencies.map((currency) => currency.id);
-
     const requests = currencyIds.map((id) =>
       buildRequestLink(id, dateStart, dateFinish)
     );
 
-    const data = await fetchSimultaneously(requests);
+    const dates = getDates(new Date(dateStart), new Date(dateFinish));
+    const currData = await fetchSimultaneously(requests);
+    const normalizedData = normalizeData(dates, currData);
 
-    const headData = ["Дата", ...currencies.map((c) => c.quot)];
-    buildTable(headData, data);
+    const headData = ["Date", ...currencies.map((c) => c.quot)];
+    buildTable(headData, normalizedData);
     toggleSpinner();
+  }
+
+  /*
+    keys=[a,b,c]
+    [
+      [{key:a,val:1}, {key:b,val:2}],
+      [{key:a,val:3}, {key:b,val:4}],
+    ]
+
+    result=[
+      [a, 1, 3],
+      [b, 2, 4]
+    ]
+  */
+  function normalizeData(dates, data) {
+    return dates.map((date) => [
+      date,
+
+      ...data.map((currArr) => {
+        let curr = currArr.find((curr) => curr.Date.substr(0, 10) == date);
+
+        return curr ? curr.Cur_OfficialRate : "N/A";
+      }),
+    ]);
+  }
+
+  function getDates(startDate, stopDate) {
+    startDate = new Date(startDate);
+    stopDate = new Date(stopDate);
+    const dateArray = new Array();
+    const currentDate = startDate;
+    while (currentDate <= stopDate) {
+      dateArray.push(new Date(currentDate).toISOString().substr(0, 10));
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+    return dateArray;
   }
 
   return { fetchAndBuild };
