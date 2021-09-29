@@ -1,0 +1,13 @@
+.app {
+    display: flex;
+    color: $color-text-dark;
+    font-family: $font-main;
+    height: 100vh;
+    width: 100vw;
+
+    &__divider {
+        width: getRem(1px);
+        border-radius: getRem(2px);
+        background-color: $color-gray;
+    }
+}

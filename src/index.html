@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>P3.Itechart</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+   
+        <link rel="stylesheet" href="./main.min.css" />
+        <script src="./main.min.js" defer></script>
+    </head>
+    <body>
+        <main class="app">
+            <section class="menu">
+                <div class="options">
+                    <div class="options__date-wrapper">
+                        <div class="option">
+                            <label for="date-start" class="option__label"
+                                >Start Date:</label
+                            >
+                            <input
+                                id="date-start"
+                                type="date"
+                                class="option__input"
+                            />
+                        </div>
+                        <div class="option">
+                            <label for="date-finish" class="option__label"
+                                >Finish Date:</label
+                            >
+                            <input
+                                id="date-finish"
+                                type="date"
+                                class="option__input"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="option">
+                        <label
+                            for="currency-input"
+                            class="option__label"
+                            >Currencies</label
+                        >
+                        <input id="currency-input" class="option__input" />
+                    </div>
+                </div>
+
+                <button id="fetch" class="btn button">Fetch</button>
+            </section>
+
+            <div class="app__divider"></div>
+
+            <section class="rates">
+                <span class="rates__label" >Rates: </span>
+
+                <div class="table-wrapper">
+                    <table class="table" id="rates-table"></table>
+
+                    <div class="spinner-wrapper">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

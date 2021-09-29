@@ -1,0 +1,25 @@
+$thickness: getRem(10px);
+$radius: getRem(60px);
+
+.spinner {
+    display: none;
+    border: $thickness solid $color-light-gray;
+    border-top: $thickness solid $color-accent;
+    border-radius: 50%;
+    width: $radius;
+    height: $radius;
+    animation: spin 2s linear infinite;
+
+    &--active {
+        display: block;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
